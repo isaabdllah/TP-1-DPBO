@@ -163,3 +163,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </body>
 </html>
+<h2>Cari Produk</h2>
+<form method="GET">
+    <input type="text" name="search" placeholder="Cari berdasarkan nama atau kategori" value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+    <button type="submit">Cari</button>
+</form>
+
+<h2>Daftar Produk</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Nama Produk</th>
+        <th>Kategori</th>
+        <th>Harga</th>
+        <th>Foto</th>
+        <th>Aksi</th>
+    </tr>
+    <?php 
+    $search = isset($_GET['search']) ? strtolower($_GET['search']) : '';
+    $found = false; // Variabel untuk cek apakah ada hasil pencarian
+
+    foreach ($_SESSION['produk'] as $produk) { 
+        if ($search === '' || strpos(strtolower($produk->getNamaProduk()), $search) !== false || strpos(strtolower($produk->getKategoriProduk()), $search) !== false) {
+            $found = true;
+    ?>
+    <tr>
+        <td><?= htmlspecialchars($produk->getId()); ?></td>
+        <td><?= htmlspecialchars($produk->getNamaProduk()); ?></td>
+        <td><?= htmlspecialchars($produk->getKategoriProduk()); ?></td>
+        <td>Rp <?= number_format($produk->getHargaProduk(), 0, ',', '.'); ?></td>
+        <td><img src="<?= htmlspecialchars($produk->getFotoProduk()); ?>" alt="Foto Produk"></td>
+        <td>
+            <form method="POST">
+                <input type="hidden" name="id" value="<?= htmlspecialchars($produk->getId()); ?>">
+                <button type="submit" name="delete" class="delete-btn">Hapus</button>
+            </form>
+        </td>
+    </tr>
+    <?php 
+        }
+    } 
+
+    // Jika tidak ada hasil yang cocok dengan pencarian
+    if (!$found) {
+        echo "<tr><td colspan='6' style='text-align: center; color: red;'>Produk tidak ditemukan.</td></tr>";
+    }
+    ?>
+</table>
