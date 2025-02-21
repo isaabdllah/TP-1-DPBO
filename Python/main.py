@@ -30,9 +30,11 @@ def main():
             temp_harga = input("Masukkan harga baru: ")
             shop.edit_produk(nama, temp_id, temp_nama, temp_kategori, temp_harga)
         elif pilihan == "4":
-            shop.hapus_produk()
+            nama = input("Masukkan nama produk yang ingin dihapus: ")  # Tambahkan input nama
+            shop.hapus_produk(nama)  # Panggil metode dengan parameter nama
         elif pilihan == "5":
-            shop.cari_produk()
+            nama = input("Masukkan nama produk yang ingin dicari: ")
+            shop.cari_produk(nama)
         elif pilihan == "6":
             print("Terima kasih telah menggunakan PetShop Management!")
             break
