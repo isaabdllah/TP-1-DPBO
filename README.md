@@ -6,7 +6,36 @@
 Saya Muhammad Isa Abdullah dengan NIM 2303508 mengerjakan Latihan Modul 1 dalam mata kuliah Desain dan Pemrograman Berorientasi Objek untuk keberkahanNya maka saya tidak melakukan kecurangan seperti yang telah dispesifikasikan. Aamiin.
 
 ---
+## Alur Program
+# Contoh Alur Program Pada CPP
+Definisi Kelas PetShop:
 
+Kelas ini mengelola data produk dengan atribut id, namaProduk, kategoriProduk, hargaProduk, dan jumlahProduk.
+Metode Utama:
+Getter & Setter: Untuk mengakses dan mengatur data produk.
+CRUD: Menambah, menampilkan, mengedit, menghapus, dan mencari produk.
+Tabel: Menghitung lebar kolom tabel berdasarkan data produk.
+Alur Program di main():
+
+Program menampilkan menu untuk operasi CRUD:
+Tampilkan Data: Menampilkan semua produk.
+Tambah Data: Menambah produk baru.
+Edit Data: Mengubah data produk berdasarkan nama.
+Hapus Data: Menghapus produk berdasarkan nama.
+Cari Data: Mencari produk berdasarkan nama.
+Keluar: Menutup program.
+Proses CRUD:
+
+Tambah Produk: Menginput ID, nama, kategori, dan harga untuk produk baru.
+Edit Produk: Mengubah data produk berdasarkan nama.
+Hapus Produk: Menghapus produk dan menggeser data untuk menjaga konsistensi array.
+Cari Produk: Menampilkan produk yang ditemukan berdasarkan nama.
+Penutupan Program:
+
+Program berjalan hingga pengguna memilih untuk keluar. Program akan menampilkan pesan terima kasih dan selesai.
+
+
+---
 ## Dokumentasi
 # C++
 ![image](https://github.com/user-attachments/assets/4d0a5072-b39a-493f-9ba9-6605d28b8b3f)
